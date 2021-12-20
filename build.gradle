@@ -1,0 +1,91 @@
+buildscript {
+    repositories {
+        maven { url = 'https://sizableshrimp.me/maven' }
+
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+
+        maven {
+            name = 'spongepowered-repo'
+            url = 'https://repo.spongepowered.org/maven/'
+        }
+
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'org.spongepowered.mixin'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+
+version = "1.0"
+group = "dev.leap.frog"
+archivesBaseName = "LeapFrog"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+repositories {
+    maven {
+        name = 'spongepowered-repo'
+        url = 'https://repo.spongepowered.org/maven/'
+    }
+
+    maven {
+        name = "jitpack.io"
+        url = "https://jitpack.io"
+    }
+
+    mavenCentral()
+    jcenter()
+}
+
+minecraft {
+    version = "1.12.2-14.23.0.2531"
+    runDir = "run"
+    coreMod = "dev.px.deteorite.Forge.MixinLoader"
+    mappings = "snapshot_20171003"
+}
+
+dependencies {
+
+    // DO NOT UPDATE MIXINS
+    compile("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+        exclude module: 'launchwrapper'
+        exclude module: 'gson'
+        exclude module: 'guava'
+        exclude module: 'commons-io'
+    }
+
+
+    compile 'club.minnced:java-discord-rpc:2.0.2'
+    compile group: 'net.jodah', name: 'typetools', version: '0.5.0'
+
+}
+
+processResources {
+
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+
+    rename "(.+_at.cfg)", 'META-INF/$1';
+}

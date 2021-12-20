@@ -1,0 +1,15 @@
+[16:39:41] [main/INFO]: Setting user: Player690
+[16:39:45] [main/WARN]: Skipping bad option: lastServer:
+[16:39:45] [main/INFO]: LWJGL Version: 2.9.2
+[16:39:48] [main/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:deteorite client
+[16:39:50] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[16:39:50] [Thread-3/INFO]: Initializing LWJGL OpenAL
+[16:39:50] [Thread-3/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[16:39:51] [Thread-3/INFO]: OpenAL initialized.
+[16:39:51] [Sound Library Loader/INFO]: Sound engine started
+[16:39:54] [main/INFO]: Created: 512x512 textures-atlas
+[16:39:57] [main/WARN]: Skipping bad option: lastServer:
+[16:39:58] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[16:40:16] [main/INFO]: Stopping!
+[16:40:16] [main/INFO]: SoundSystem shutting down...
+[16:40:16] [main/WARN]: Author: Paul Lamb, www.paulscode.com

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "cat client",
+  "name": "Cat",
+  "description": "Cat client made by PX (github.com/biggiemedium), got bored one night and made this while in quarentine.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["PX"],
+  "credits": "",
+  "logoFile": "/IMG/LeapFrog.PNG",
+  "screenshots": [],
+  "dependencies": []
+}
+]

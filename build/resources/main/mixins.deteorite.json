@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "dev.px.deteorite.Forge",
+  "refmap": "mixins.deteorite.refmap.json",
+  "mixins": [
+    "MixinMainMenu"
+  ]
+}
