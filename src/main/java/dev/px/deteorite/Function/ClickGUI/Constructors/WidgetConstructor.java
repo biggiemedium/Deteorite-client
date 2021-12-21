@@ -31,7 +31,7 @@ public class WidgetConstructor {
         } else if(m.isToggled() && !isHovered(mouseX, mouseY, x, y, width, height)) {
             return new Color(ClickGUIModule.INSTANCE.buttonred.getValue(), ClickGUIModule.INSTANCE.buttongreen.getValue(), ClickGUIModule.INSTANCE.buttonblue.getValue(), 200).darker().darker().getRGB();
         } else if(m.isToggled() && isHovered(mouseX, mouseY, x, y, width, height)) {
-            return new Color(ClickGUIModule.INSTANCE.buttonred.getValue(), ClickGUIModule.INSTANCE.buttongreen.getValue(), ClickGUIModule.INSTANCE.buttonblue.getValue(), 200).brighter().brighter().getRGB();
+            return new Color(ClickGUIModule.INSTANCE.buttonred.getValue(), ClickGUIModule.INSTANCE.buttongreen.getValue(), ClickGUIModule.INSTANCE.buttonblue.getValue(), 200).darker().darker().getRGB();
         }
         return -1;
     }

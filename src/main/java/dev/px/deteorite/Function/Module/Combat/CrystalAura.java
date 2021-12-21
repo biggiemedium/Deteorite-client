@@ -1,6 +1,7 @@
 package dev.px.deteorite.Function.Module.Combat;
 
 import dev.px.deteorite.Function.Module.Module;
+import dev.px.deteorite.Function.Value.Value;
 
 public class CrystalAura extends Module {
 

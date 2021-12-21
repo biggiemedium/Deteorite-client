@@ -1,5 +1,7 @@
 package dev.px.deteorite.Function.ClickGUI;
 
+import dev.px.deteorite.Function.ClickGUI.Constructors.Component;
+import dev.px.deteorite.Util.Render.Colorutil;
 import dev.px.deteorite.deteorite;
 import dev.px.deteorite.Function.ClickGUI.Constructors.WidgetConstructor;
 import dev.px.deteorite.Function.Module.Module;
@@ -48,7 +50,7 @@ public class Frame extends WidgetConstructor implements IComponent {
         int valueChange = new Color(ClickGUIModule.INSTANCE.red.getValue(), ClickGUIModule.INSTANCE.green.getValue(), ClickGUIModule.INSTANCE.blue.getValue(), 200).getRGB();
         int outline = new Color(ClickGUIModule.INSTANCE.red.getValue(), ClickGUIModule.INSTANCE.green.getValue(), ClickGUIModule.INSTANCE.blue.getValue(), 150).getRGB();
 
-        Renderutil.drawRect(this.x, this.y, x + width, (y + this.height), valueChange);
+        Renderutil.drawRect(this.x, this.y, x + width, (y + this.height), ClickGUIModule.INSTANCE.rainbow.getValue() ? Colorutil.Rainbow(ClickGUIModule.INSTANCE.rainbowSpeed.getValue()) : valueChange);
         Renderutil.drawRectOutline((int)this.x - 1, (int)this.y - 1, (int)(this.x + this.width) + 1, (int)(this.y + this.height), (int)this.x, (int)this.y, (int)(this.x + this.width), (int)(this.y + this.height), outline);
         Fontutil.drawString(font(), type.name(), (int) this.x + 4, (int) this.y + this.height / 2 - 4, -1);
         Fontutil.drawString(font(), "" + getModuleCountForType(type), x + (width - 5), y + 2, -1);
@@ -58,9 +60,9 @@ public class Frame extends WidgetConstructor implements IComponent {
             this.y = mouseY - dragY;
         }
 
-        if(open && !moduleButtons.isEmpty()) {
+        if(!open) return;
             int offset = 0;
-            for(ModuleButton b : moduleButtons) {
+            for(ModuleButton b : this.moduleButtons) {
                 if(b.getX() != x) {
                     b.setX(x);
                 }
@@ -70,21 +72,11 @@ public class Frame extends WidgetConstructor implements IComponent {
                 b.draw(mouseX, mouseY);
                 offset += b.getHeight();
             }
-        }
     }
 
     private int getModuleCountForType(Module.Type type) {
         int count = deteorite.moduleManager.getModuleByType(type).size();
         return count;
-    }
-
-    private void handlePosition(int x, int y, ModuleButton button, int height) {
-        if(button.getX() != x) {
-            button.setX(x);
-        }
-        if(button.getY() != y) {
-            button.setY(y + height);
-        }
     }
 
     @Override

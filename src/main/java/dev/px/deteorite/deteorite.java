@@ -15,6 +15,10 @@ import org.lwjgl.opengl.Display;
 
 import java.awt.*;
 
+/**
+ * @author PX dec 19, 2021
+ */
+
 @Mod(modid = deteorite.MODID, version = deteorite.VERSION)
 public class deteorite {
     public static final String MODID = "deteorite client";
