@@ -1,6 +1,6 @@
 # deteorite-client
 
-This client was made by me (PX), I made this project to challenge myself to see if I could make a client thats completely custom (besides the Command system and a few parts from my main clien that im working on Leapfrog).
+This client was made by me (PX), I made this project to challenge myself to see if I could make a client thats completely custom (besides the Command system and the gui that I just skidded from my old client cuz im lazy).
 Feel free to take any of this code just please credit me.
 
 ## downloads
