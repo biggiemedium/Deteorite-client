@@ -1,6 +1,8 @@
 package dev.px.deteorite.Event.Player;
 
-public class PlayerUpdateEvent {
+import net.minecraftforge.fml.common.eventhandler.Event;
+
+public class PlayerUpdateEvent extends Event {
 
     public PlayerUpdateEvent() {
 
