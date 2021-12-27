@@ -1,6 +1,6 @@
 package dev.px.deteorite.Forge;
 
-import dev.px.deteorite.deteorite;
+import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Util.Render.Colorutil;
 import dev.px.deteorite.Util.Wrapper;
 import net.minecraft.client.Minecraft;
@@ -23,7 +23,7 @@ public class MixinMainMenu extends GuiScreen {
         FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
         ScaledResolution sc = new ScaledResolution(Wrapper.getMC());
 
-        fr.drawStringWithShadow(deteorite.MODID + " " + deteorite.VERSION, sc.getScaledWidth() - Wrapper.getMC().fontRenderer.getStringWidth("LeapFrog Client" + deteorite.VERSION) - 5, 2, Colorutil.Rainbow(300));
+        fr.drawStringWithShadow(Deteorite.MODID + " " + Deteorite.VERSION, sc.getScaledWidth() - Wrapper.getMC().fontRenderer.getStringWidth("LeapFrog Client" + Deteorite.VERSION) - 5, 2, Colorutil.Rainbow(300));
     }
 
     @Inject(method = {"initGui"}, at = { @At("RETURN") }, cancellable = true)

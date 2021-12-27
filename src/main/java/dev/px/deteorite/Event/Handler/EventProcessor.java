@@ -1,7 +1,7 @@
 package dev.px.deteorite.Event.Handler;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-import dev.px.deteorite.deteorite;
+import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Command.Command;
 import dev.px.deteorite.Function.Module.Module;
 import dev.px.deteorite.Util.Wrapper;
@@ -30,7 +30,7 @@ public class EventProcessor {
                     int keyCode = Keyboard.getEventKey();
                     if(keyCode <= 0)
                         return;
-                    for(Module m : deteorite.moduleManager.modules) {
+                    for(Module m : Deteorite.moduleManager.modules) {
                         if(m.getKey() == keyCode && keyCode > 0) {
                             m.toggle();
                         }
@@ -47,7 +47,7 @@ public class EventProcessor {
 
             try {
                 mc.ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
-                deteorite.commandManager.callCommand(event.getMessage().substring(1));
+                Deteorite.commandManager.callCommand(event.getMessage().substring(1));
             }
             catch (Exception e) {
                 e.printStackTrace();

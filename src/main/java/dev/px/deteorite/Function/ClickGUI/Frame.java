@@ -1,8 +1,7 @@
 package dev.px.deteorite.Function.ClickGUI;
 
-import dev.px.deteorite.Function.ClickGUI.Constructors.Component;
 import dev.px.deteorite.Util.Render.Colorutil;
-import dev.px.deteorite.deteorite;
+import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Function.ClickGUI.Constructors.WidgetConstructor;
 import dev.px.deteorite.Function.Module.Module;
 import dev.px.deteorite.Function.Module.Other.ClickGUIModule;
@@ -37,7 +36,7 @@ public class Frame extends WidgetConstructor implements IComponent {
         this.moduleButtons = new ArrayList<>();
 
         int offsetY = 13;
-        for(Module m : deteorite.moduleManager.getModuleByType(type)) {
+        for(Module m : Deteorite.moduleManager.getModuleByType(type)) {
             if(this.type == m.getType()) {
                 this.moduleButtons.add(new ModuleButton(m, this, this.x, offsetY));
                 offsetY += 13;
@@ -75,7 +74,7 @@ public class Frame extends WidgetConstructor implements IComponent {
     }
 
     private int getModuleCountForType(Module.Type type) {
-        int count = deteorite.moduleManager.getModuleByType(type).size();
+        int count = Deteorite.moduleManager.getModuleByType(type).size();
         return count;
     }
 

@@ -6,7 +6,7 @@ import dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders.DoubleSlider;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders.FloatSlider;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders.IntegerSlider;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.ToggleButton;
-import dev.px.deteorite.deteorite;
+import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Function.ClickGUI.Constructors.WidgetConstructor;
 import dev.px.deteorite.Function.Module.Module;
 import dev.px.deteorite.Function.Value.Value;
@@ -40,8 +40,8 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
         this.open = false;
 
         this.components = new ArrayList<>();
-        if(deteorite.valueManager.getValueForMod(module) != null && !deteorite.valueManager.values.isEmpty()) {
-            for (Value v : deteorite.valueManager.getValueForMod(module)) {
+        if(Deteorite.valueManager.getValueForMod(module) != null && !Deteorite.valueManager.values.isEmpty()) {
+            for (Value v : Deteorite.valueManager.getValueForMod(module)) {
                 if(v.getValue() instanceof Boolean) {
                     this.components.add(new ToggleButton(v, x, y, this));
                 }

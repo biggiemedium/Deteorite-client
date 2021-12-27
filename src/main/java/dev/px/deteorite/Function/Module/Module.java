@@ -1,6 +1,6 @@
 package dev.px.deteorite.Function.Module;
 
-import dev.px.deteorite.deteorite;
+import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Function.Constructor;
 import dev.px.deteorite.Function.Value.Value;
 import net.minecraft.client.Minecraft;
@@ -106,29 +106,29 @@ public class Module extends Constructor {
     }
 
     protected Value create(String name, Object value) {
-        return deteorite.valueManager.Add(new Value(name, this, value));
+        return Deteorite.valueManager.Add(new Value(name, this, value));
     }
 
     protected Value create(String name, Object value, Predicate<Object> predicate) {
-        return deteorite.valueManager.Add(new Value(name, this, value, predicate));
+        return Deteorite.valueManager.Add(new Value(name, this, value, predicate));
     }
 
     protected Value create(String name, Object value, Object min, Object max) {
-        return deteorite.valueManager.Add(new Value(name, this, value, min, max));
+        return Deteorite.valueManager.Add(new Value(name, this, value, min, max));
     }
 
     protected Value create(String name, Object value, Object min, Object max, Predicate<Object> predicate) {
-        return deteorite.valueManager.Add(new Value(name, this, value, min, max, predicate));
+        return Deteorite.valueManager.Add(new Value(name, this, value, min, max, predicate));
     }
 
     public <T> Value create(Value<T> value) {
-        deteorite.valueManager.Add(value);
+        Deteorite.valueManager.Add(value);
         return value;
     }
 
     @Override
     public void log() {
-        deteorite.log.info("Module Constructor running!");
+        Deteorite.log.info("Module Constructor running!");
     }
 
     public enum Type {

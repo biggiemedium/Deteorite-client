@@ -19,8 +19,8 @@ import java.awt.*;
  * @author PX dec 19, 2021
  */
 
-@Mod(modid = deteorite.MODID, version = deteorite.VERSION)
-public class deteorite {
+@Mod(modid = Deteorite.MODID, version = Deteorite.VERSION)
+public class Deteorite {
     public static final String MODID = "deteorite client";
     public static final String VERSION = "1.0";
 
