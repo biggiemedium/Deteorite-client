@@ -55,4 +55,9 @@ public class EventProcessor {
             }
         }
     }
+
+    public static <T> T subscribe(T object) {
+        MinecraftForge.EVENT_BUS.register(object);
+        return object;
+    }
 }

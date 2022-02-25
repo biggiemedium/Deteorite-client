@@ -52,7 +52,7 @@ public class ModuleManager {
         return modulestype;
     }
 
-    public Module getModule(Class clazz) {
+    public Module getModuleByClass(Class clazz) {
         for(Module m : getModules()) {
             if(m.getClass() == clazz) {
                 return m;

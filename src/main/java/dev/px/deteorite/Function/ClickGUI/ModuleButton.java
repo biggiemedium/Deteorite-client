@@ -1,7 +1,9 @@
 package dev.px.deteorite.Function.ClickGUI;
 
-import dev.px.deteorite.Function.ClickGUI.Constructors.Component;
+import dev.px.deteorite.Function.ClickGUI.Constructors.Element;
+import dev.px.deteorite.Function.ClickGUI.SettingButtons.ColorButton;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.Combos.EnumButton;
+import dev.px.deteorite.Function.ClickGUI.SettingButtons.NonRemoveable.KeybindButton;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders.DoubleSlider;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders.FloatSlider;
 import dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders.IntegerSlider;
@@ -27,7 +29,7 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
     private Module module;
     private Frame frame;
 
-    public ArrayList<Component> components;
+    public ArrayList<Element> components;
 
     public ModuleButton(Module module, Frame frame, int x, int y) {
         this.module = module;
@@ -37,16 +39,12 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
         this.y = y;
         this.width = frame.getWidth();
         this.height = 13;
-        this.open = false;
 
         this.components = new ArrayList<>();
         if(Deteorite.valueManager.getValueForMod(module) != null && !Deteorite.valueManager.values.isEmpty()) {
             for (Value v : Deteorite.valueManager.getValueForMod(module)) {
                 if(v.getValue() instanceof Boolean) {
                     this.components.add(new ToggleButton(v, x, y, this));
-                }
-                if(v.getValue() instanceof Integer) {
-
                 }
                 if(v.getValue() instanceof Enum) {
                     this.components.add(new EnumButton(v, x,  y, this));
@@ -60,6 +58,11 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
                 if(v.getValue() instanceof Double) {
                     this.components.add(new DoubleSlider(v, x, y, this));
                 }
+                if(v.getValue() instanceof Color) {
+                    this.components.add(new ColorButton(v, x, y, this));
+                }
+
+                this.components.add(new KeybindButton(this, x, y));
             }
         }
     }
@@ -71,13 +74,17 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
         Renderutil.drawRect(x, y + 12, x + width, y + 13, new Color(10, 10, 10, 200).getRGB());
         Fontutil.drawStringWithShadow(font(), module.getName(), x + 2, y + 2, -1);
 
+        //mc.getTextureManager().bindTexture(new ResourceLocation("gear.png"));
+        //Gui.drawModalRectWithCustomSizedTexture(this.width - 2, this.y + 2, 0, 0, 10, 10, 10, 10);
+
+
         /**
          * Code follows same format as my old client (Leapfrog)
          */
 
         this.height = 13;
         if (open) {
-            for (Component c : this.components) {
+            for (Element c : this.components) {
                 if (c.isVisible()) {
                     if (c.getX() != x) {
                         c.setX(x);
@@ -104,8 +111,17 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
             return;
         }
 
+        /*
+        This is to ensure that only one module button stays open at a time so that they dont overlap each other
+         */
+        if(button == 1) {
+            if(this.components.size() > 0) {
+                this.open = false;
+            }
+        }
+
         if(open) {
-            for(Component b : components){
+            for(Element b : components){
                 b.mouseClicked(mouseX, mouseY, button);
             }
         }
@@ -113,14 +129,14 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
 
     @Override
     public void mouseReleased(int mouseX, int mouseY, int state) {
-        for(Component c : components) {
+        for(Element c : components) {
             c.mouseReleased(mouseX, mouseY, state);
         }
     }
 
     @Override
     public void keyTyped(char typedChar, int keyCode) throws IOException {
-        for(Component c : components) {
+        for(Element c : components) {
             c.keyTyped(typedChar, keyCode);
         }
     }

@@ -29,4 +29,7 @@ public class ValueManager {
         return valueList;
     }
 
+    public ArrayList<Value> getValues() {
+        return this.values;
+    }
 }

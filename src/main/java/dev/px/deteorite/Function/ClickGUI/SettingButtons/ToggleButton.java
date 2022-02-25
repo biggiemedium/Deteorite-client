@@ -1,16 +1,15 @@
 package dev.px.deteorite.Function.ClickGUI.SettingButtons;
 
-import dev.px.deteorite.Function.ClickGUI.Constructors.Component;
+import dev.px.deteorite.Function.ClickGUI.Constructors.Element;
 import dev.px.deteorite.Function.ClickGUI.ModuleButton;
 import dev.px.deteorite.Function.Value.Value;
-import dev.px.deteorite.Util.Render.Colorutil;
 import dev.px.deteorite.Util.Render.Fontutil;
 import dev.px.deteorite.Util.Render.Renderutil;
 
 import java.awt.*;
 import java.io.IOException;
 
-public class ToggleButton extends Component {
+public class ToggleButton extends Element {
 
     private Value<Boolean> value;
 

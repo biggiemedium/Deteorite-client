@@ -381,7 +381,5 @@ public class CFontRenderer extends CFont {
 
             this.colorCode[index] = (red & 255) << 16 | (green & 255) << 8 | blue & 255;
         }
-
     }
-
 }

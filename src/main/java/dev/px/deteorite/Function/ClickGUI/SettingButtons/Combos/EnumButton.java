@@ -1,6 +1,6 @@
 package dev.px.deteorite.Function.ClickGUI.SettingButtons.Combos;
 
-import dev.px.deteorite.Function.ClickGUI.Constructors.Component;
+import dev.px.deteorite.Function.ClickGUI.Constructors.Element;
 import dev.px.deteorite.Function.ClickGUI.ModuleButton;
 import dev.px.deteorite.Function.Value.Value;
 import dev.px.deteorite.Util.Render.Fontutil;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
-public class EnumButton extends Component {
+public class EnumButton extends Element {
 
     private Value<Enum> value;
 

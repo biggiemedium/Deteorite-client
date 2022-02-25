@@ -1,6 +1,6 @@
 package dev.px.deteorite.Function.ClickGUI.SettingButtons.Sliders;
 
-import dev.px.deteorite.Function.ClickGUI.Constructors.Component;
+import dev.px.deteorite.Function.ClickGUI.Constructors.Element;
 import dev.px.deteorite.Function.ClickGUI.ModuleButton;
 import dev.px.deteorite.Function.Value.Value;
 import dev.px.deteorite.Util.Render.Fontutil;
@@ -10,7 +10,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
-public class FloatSlider extends Component {
+public class FloatSlider extends Element {
 
     private Value<Float> value;
     private boolean dragging;

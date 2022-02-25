@@ -6,7 +6,7 @@ import dev.px.deteorite.Util.Interfaces.IComponent;
 
 import java.io.IOException;
 
-public class Component extends WidgetConstructor implements IComponent {
+public class Element extends WidgetConstructor implements IComponent {
 
     private int x;
     private int y;
@@ -17,7 +17,7 @@ public class Component extends WidgetConstructor implements IComponent {
 
     public boolean shown;
 
-    public Component(ModuleButton button, int x, int y, int width, int height) {
+    public Element(ModuleButton button, int x, int y, int width, int height) {
         this.moduleButton = button;
         this.x = x;
         this.y = y;
@@ -25,7 +25,7 @@ public class Component extends WidgetConstructor implements IComponent {
         this.height = height;
     }
 
-    public Component(Value<?> value, ModuleButton button, int x, int y, int width, int height) {
+    public Element(Value<?> value, ModuleButton button, int x, int y, int width, int height) {
         this.moduleButton = button;
         this.x = x;
         this.y = y;

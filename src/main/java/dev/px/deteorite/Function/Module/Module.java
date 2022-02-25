@@ -15,6 +15,7 @@ public class Module extends Constructor {
     private Type type;
     private int key;
     private boolean toggled;
+    private boolean drawn;
 
     protected Minecraft mc = Minecraft.getMinecraft();
 
@@ -24,6 +25,7 @@ public class Module extends Constructor {
         this.type = type;
         this.key = -1;
         this.toggled = false;
+        this.drawn = false;
     }
 
     public Module(String name, Type type) {
@@ -32,6 +34,7 @@ public class Module extends Constructor {
         this.type = type;
         this.key = -1;
         this.toggled = false;
+        this.drawn = false;
     }
 
     public void onEnabled() {
@@ -72,6 +75,14 @@ public class Module extends Constructor {
 
     public boolean isToggled() {
         return toggled;
+    }
+
+    public boolean isDrawn() {
+        return drawn;
+    }
+
+    public void setDrawn(boolean drawn) {
+        this.drawn = drawn;
     }
 
     public void setToggled(boolean toggled) {

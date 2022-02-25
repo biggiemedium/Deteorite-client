@@ -49,6 +49,8 @@ public class Frame extends WidgetConstructor implements IComponent {
         int valueChange = new Color(ClickGUIModule.INSTANCE.red.getValue(), ClickGUIModule.INSTANCE.green.getValue(), ClickGUIModule.INSTANCE.blue.getValue(), 200).getRGB();
         int outline = new Color(ClickGUIModule.INSTANCE.red.getValue(), ClickGUIModule.INSTANCE.green.getValue(), ClickGUIModule.INSTANCE.blue.getValue(), 150).getRGB();
 
+        int vvv = ClickGUIModule.INSTANCE.rainbow.getValue() ? Colorutil.Rainbow(ClickGUIModule.INSTANCE.rainbowSpeed.getValue()) : valueChange;
+
         Renderutil.drawRect(this.x, this.y, x + width, (y + this.height), ClickGUIModule.INSTANCE.rainbow.getValue() ? Colorutil.Rainbow(ClickGUIModule.INSTANCE.rainbowSpeed.getValue()) : valueChange);
         Renderutil.drawRectOutline((int)this.x - 1, (int)this.y - 1, (int)(this.x + this.width) + 1, (int)(this.y + this.height), (int)this.x, (int)this.y, (int)(this.x + this.width), (int)(this.y + this.height), outline);
         Fontutil.drawString(font(), type.name(), (int) this.x + 4, (int) this.y + this.height / 2 - 4, -1);

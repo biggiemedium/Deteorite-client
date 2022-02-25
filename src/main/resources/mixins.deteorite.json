@@ -5,6 +5,8 @@
   "refmap": "mixins.deteorite.refmap.json",
   "mixins": [
     "MixinMainMenu",
-    "MixinNetworkManager"
+    "MixinNetworkManager",
+    "MixinEntityPlayerSP",
+    "MixinGuiChat"
   ]
 }
