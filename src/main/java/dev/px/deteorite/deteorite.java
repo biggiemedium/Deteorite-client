@@ -3,8 +3,10 @@ package dev.px.deteorite;
 import dev.px.deteorite.Event.Handler.EventProcessor;
 import dev.px.deteorite.Function.ClickGUI.FontRenderer.CFontRenderer;
 import dev.px.deteorite.Manager.CommandManager;
+import dev.px.deteorite.Manager.HUDManager;
 import dev.px.deteorite.Manager.ModuleManager;
 import dev.px.deteorite.Manager.ValueManager;
+import dev.px.deteorite.Util.Config.API.ConfigManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -31,20 +33,27 @@ public class Deteorite {
     public static ModuleManager moduleManager;
     public static EventProcessor eventProcessor;
     public static CommandManager commandManager;
+    public static HUDManager HUDManager;
+    public static ConfigManager configManager;
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         System.out.println("Starting Client");
         MinecraftForge.EVENT_BUS.register(this);
         log.info("Starting Client");
-        fontRenderer = new CFontRenderer(new Font("Verdana", 0, 18), true, true);
+        fontRenderer = new CFontRenderer(new Font("Verdana", 0, 16), true, true);
 
 
         valueManager = new ValueManager();
         moduleManager = new ModuleManager();
+        HUDManager = new HUDManager();
         eventProcessor = new EventProcessor();
+        configManager = new ConfigManager();
         commandManager = new CommandManager();
 
         Display.setTitle(MODID + " " + VERSION);
+        configManager.getConfigs().forEach(config -> {
+            config.loads();
+        });
     }
 }

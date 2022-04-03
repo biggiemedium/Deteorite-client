@@ -12,7 +12,7 @@ public class ColorButton extends Element {
     private Value<Color> value;
 
     public ColorButton(Value<Color> value, int x, int y, ModuleButton button) {
-        super(value, button, x, y, button.getWidth(), 13);
+        super(value, button, x, y, button.getWidth(), 18);
         this.value = value;
     }
 

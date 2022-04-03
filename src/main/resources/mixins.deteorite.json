@@ -4,9 +4,10 @@
   "package": "dev.px.deteorite.Forge",
   "refmap": "mixins.deteorite.refmap.json",
   "mixins": [
-    "MixinMainMenu",
-    "MixinNetworkManager",
-    "MixinEntityPlayerSP",
-    "MixinGuiChat"
+    "GUI.MixinGuiMainMenu",
+    "Network.MixinNetworkManager",
+    "Entity.MixinEntityPlayerSP",
+    "GUI.MixinGuiChat",
+    "Minecraft.MixinMinecraft"
   ]
 }

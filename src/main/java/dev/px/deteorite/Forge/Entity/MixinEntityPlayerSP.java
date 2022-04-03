@@ -1,4 +1,4 @@
-package dev.px.deteorite.Forge;
+package dev.px.deteorite.Forge.Entity;
 
 import dev.px.deteorite.Event.Player.PlayerUpdateEvent;
 import net.minecraft.client.entity.EntityPlayerSP;

@@ -1,4 +1,4 @@
-package dev.px.deteorite.Forge;
+package dev.px.deteorite.Forge.GUI;
 
 import dev.px.deteorite.Command.Command;
 import dev.px.deteorite.GUI.CommandBox;

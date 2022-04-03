@@ -1,6 +1,8 @@
 package dev.px.deteorite.Function.Value;
 
+import dev.px.deteorite.Event.Other.ValueChangeEvent;
 import dev.px.deteorite.Function.Module.Module;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -99,6 +101,7 @@ public class Value<T> {
 
     public void setValue(T value) {
         this.value = value;
+        //MinecraftForge.EVENT_BUS.post(new ValueChangeEvent(this));
     }
 
     public T getMin() {

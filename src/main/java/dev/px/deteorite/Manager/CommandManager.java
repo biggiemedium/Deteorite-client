@@ -3,6 +3,7 @@ package dev.px.deteorite.Manager;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import dev.px.deteorite.Command.Command;
 import dev.px.deteorite.Command.Commands.PrefixCommand;
+import dev.px.deteorite.Command.Commands.SavedCommand;
 import dev.px.deteorite.Util.Wrapper;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class CommandManager {
         }
 
         Add(new PrefixCommand());
+        Add(new SavedCommand());
     }
 
     private void Add(Command command) {

@@ -1,6 +1,8 @@
 package dev.px.deteorite.Function.ClickGUI;
 
 import dev.px.deteorite.Function.Module.Module;
+import dev.px.deteorite.Util.Config.API.ConfigManager;
+import dev.px.deteorite.Util.Config.Config;
 import net.minecraft.client.gui.GuiScreen;
 
 import java.io.IOException;
@@ -40,6 +42,13 @@ public class ClickGUI extends GuiScreen {
         for(Frame f : frames) {
             f.mouseReleased(mouseX, mouseY, state);
         }
+    }
+
+    @Override
+    public void onGuiClosed() {
+        ConfigManager.INSTANCE.getConfigs().forEach(config -> {
+            config.saves();
+        });
     }
 
     @Override

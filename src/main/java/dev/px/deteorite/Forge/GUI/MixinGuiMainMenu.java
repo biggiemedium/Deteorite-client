@@ -1,4 +1,4 @@
-package dev.px.deteorite.Forge;
+package dev.px.deteorite.Forge.GUI;
 
 import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Util.Render.Colorutil;
@@ -16,7 +16,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 @Mixin(GuiMainMenu.class)
-public class MixinMainMenu extends GuiScreen {
+public class MixinGuiMainMenu extends GuiScreen {
 
     @Inject(method = "drawScreen", at = @At("TAIL"), cancellable = true)
     public void drawScreen(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {

@@ -1,4 +1,4 @@
-package dev.px.deteorite.Forge;
+package dev.px.deteorite.Forge.Network;
 
 import dev.px.deteorite.Event.Network.PacketEvent;
 import io.netty.channel.ChannelHandlerContext;

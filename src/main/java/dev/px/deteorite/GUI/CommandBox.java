@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiNewChat;
 
 public class CommandBox extends GuiChat {
 
-    private String command = Command.getPrefix();
+    private String command;
 
     private String start, history;
     private int curser;
@@ -17,5 +17,6 @@ public class CommandBox extends GuiChat {
         this.start = start;
         this.history = history;
         this.curser = curser;
+        this.command = Command.getPrefix();
     }
 }

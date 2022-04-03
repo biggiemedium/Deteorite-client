@@ -6,6 +6,7 @@ import dev.px.deteorite.Function.Module.Combat.KillAura;
 import dev.px.deteorite.Function.Module.Module;
 import dev.px.deteorite.Function.Module.Other.ClickGUIModule;
 import dev.px.deteorite.Function.Module.Other.Test;
+import dev.px.deteorite.Function.Module.Render.HUDModule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,9 @@ public class ModuleManager {
 
         Add(new Test());
         Add(new ClickGUIModule());
+
+        // Render
+        Add(new HUDModule());
     }
 
     public Module getModuleByName(String name) {

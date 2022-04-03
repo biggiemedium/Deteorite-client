@@ -106,6 +106,9 @@ public class Element extends WidgetConstructor implements IComponent {
     }
 
     public boolean isVisible() {
+        if(this.value == null) {
+            return false;
+        }
         return this.value.isVisible();
     }
 }
