@@ -1,7 +1,7 @@
 [
 {
-  "modid": "cat client",
-  "name": "Cat",
+  "modid": "deteorite client",
+  "name": "deteorite",
   "description": "Cat client made by PX (github.com/biggiemedium), got bored one night and made this while in quarentine.",
   "version": "${version}",
   "mcversion": "${mcversion}",

@@ -26,7 +26,7 @@ public class Deteorite {
     public static final String MODID = "deteorite client";
     public static final String VERSION = "1.0";
 
-    public static final Logger log = LogManager.getLogger("cat");
+    public static final Logger log = LogManager.getLogger("deteorite");
     public static CFontRenderer fontRenderer;
 
     public static ValueManager valueManager;

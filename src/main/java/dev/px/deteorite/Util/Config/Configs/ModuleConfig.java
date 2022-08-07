@@ -9,7 +9,7 @@ import java.io.*;
 public class ModuleConfig extends Config {
 
     public ModuleConfig() {
-        super("Module", true);
+        super("Module");
     }
 
     private File modFile = new File(this.getSubFile() + File.separator + "Modules.txt");

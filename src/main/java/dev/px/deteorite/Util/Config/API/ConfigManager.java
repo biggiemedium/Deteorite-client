@@ -2,6 +2,7 @@ package dev.px.deteorite.Util.Config.API;
 
 import dev.px.deteorite.Util.Config.Config;
 import dev.px.deteorite.Util.Config.Configs.ModuleConfig;
+import dev.px.deteorite.Util.Config.Configs.SettingConfig;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class ConfigManager {
         this.configs = new ArrayList<>();
 
         this.configs.add(new ModuleConfig());
+        this.configs.add(new SettingConfig());
     }
 
     public void saves() {

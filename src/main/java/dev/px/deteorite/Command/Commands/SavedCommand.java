@@ -11,7 +11,7 @@ public class SavedCommand extends Command {
 
     @Override
     public String[] getArgs() {
-        return new String[0];
+        return new String[] {"save", "saveconfig", "config"};
     }
 
     @Override
@@ -21,6 +21,9 @@ public class SavedCommand extends Command {
 
     @Override
     public void exec(String command, String[] args) {
-        //Deteorite.configManager.saves();
+        sendMessage("Saved config!");
+        Deteorite.configManager.getConfigs().forEach(config -> {
+            config.saves();
+        });
     }
 }

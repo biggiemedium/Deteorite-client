@@ -1,5 +1,6 @@
 package dev.px.deteorite.Util.Render;
 
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -24,7 +25,7 @@ public class Renderutil {
         GlStateManager.disableBlend();
     }
 
-    public static void drawRect(final float x, final float y, final float w, final float h, final int color) {
+    public static void drawRect(float x, float y, float w, float h, int color) {
         final float alpha = (color >> 24 & 0xFF) / 255.0f;
         final float red = (color >> 16 & 0xFF) / 255.0f;
         final float green = (color >> 8 & 0xFF) / 255.0f;
@@ -44,6 +45,42 @@ public class Renderutil {
         GlStateManager.disableBlend();
     }
 
+    public static void drawRect2(float x, float y, float w, float h, int color) {
+        float lvt_5_2_;
+        float p_drawRect_2_ = x + w;
+        float p_drawRect_3_ = y + h;
+        if (x < p_drawRect_2_) {
+            lvt_5_2_ = x;
+            x = p_drawRect_2_;
+            p_drawRect_2_ = lvt_5_2_;
+        }
+
+        if (y < p_drawRect_3_) {
+            lvt_5_2_ = y;
+            y = p_drawRect_3_;
+            p_drawRect_3_ = lvt_5_2_;
+        }
+
+        float lvt_5_3_ = (float)(color >> 24 & 255) / 255.0F;
+        float lvt_6_1_ = (float)(color >> 16 & 255) / 255.0F;
+        float lvt_7_1_ = (float)(color >> 8 & 255) / 255.0F;
+        float lvt_8_1_ = (float)(color & 255) / 255.0F;
+        Tessellator lvt_9_1_ = Tessellator.getInstance();
+        BufferBuilder lvt_10_1_ = lvt_9_1_.getBuffer();
+        GlStateManager.enableBlend();
+        GlStateManager.disableTexture2D();
+        GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+        GlStateManager.color(lvt_6_1_, lvt_7_1_, lvt_8_1_, lvt_5_3_);
+        lvt_10_1_.begin(7, DefaultVertexFormats.POSITION);
+        lvt_10_1_.pos(x, p_drawRect_3_, 0.0D).endVertex();
+        lvt_10_1_.pos(p_drawRect_2_, p_drawRect_3_, 0.0D).endVertex();
+        lvt_10_1_.pos(p_drawRect_2_, y, 0.0D).endVertex();
+        lvt_10_1_.pos(x, y, 0.0D).endVertex();
+        lvt_9_1_.draw();
+        GlStateManager.enableTexture2D();
+        GlStateManager.disableBlend();
+    }
+
     public static void drawRectOutline(float left, float top, float right, float bottom, float left2, float top2, float right2, float bottom2, int color) {
         drawRect(left, top, right, top2, color);
         drawRect(right2, top2, right, bottom, color);
@@ -51,7 +88,36 @@ public class Renderutil {
         drawRect(left, top2, left2, bottom2, color);
     }
 
-    public static void drawGradient(final double x, final double y, final double x2, final double y2, final int col1, final int col2) { // for arraylist
+    public static void drawBorderedRect(float x, float y, float x2, float y2, float l1, int col1, int col2) {
+        Gui.drawRect((int)x, (int)y, (int)x2, (int)y2, col2);
+        float f = (col1 >> 24 & 0xFF) / 255.0f;
+        float f2 = (col1 >> 16 & 0xFF) / 255.0f;
+        float f3 = (col1 >> 8 & 0xFF) / 255.0f;
+        float f4 = (col1 & 0xFF) / 255.0f;
+        GL11.glEnable(3042);
+        GL11.glDisable(3553);
+        GL11.glBlendFunc(770, 771);
+        GL11.glEnable(2848);
+        GL11.glPushMatrix();
+        GL11.glColor4f(f2, f3, f4, f);
+        GL11.glLineWidth(l1);
+        GL11.glBegin(1);
+        GL11.glVertex2d(x, y);
+        GL11.glVertex2d(x, y2);
+        GL11.glVertex2d(x2, y2);
+        GL11.glVertex2d(x2, y);
+        GL11.glVertex2d(x, y);
+        GL11.glVertex2d(x2, y);
+        GL11.glVertex2d(x, y2);
+        GL11.glVertex2d(x2, y2);
+        GL11.glEnd();
+        GL11.glPopMatrix();
+        GL11.glEnable(3553);
+        GL11.glDisable(3042);
+        GL11.glDisable(2848);
+    }
+
+    public static void drawGradient(double x, double y, double x2, double y2, int col1, int col2) { // for arraylist
         final float f = (col1 >> 24 & 0xFF) / 255.0f;
         final float f2 = (col1 >> 16 & 0xFF) / 255.0f;
         final float f3 = (col1 >> 8 & 0xFF) / 255.0f;

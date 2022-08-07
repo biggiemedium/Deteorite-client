@@ -11,6 +11,7 @@ import dev.px.deteorite.Function.ClickGUI.SettingButtons.ToggleButton;
 import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Function.ClickGUI.Constructors.WidgetConstructor;
 import dev.px.deteorite.Function.Module.Module;
+import dev.px.deteorite.Function.Module.Other.ClickGUIModule;
 import dev.px.deteorite.Function.Value.Value;
 import dev.px.deteorite.Util.Interfaces.IComponent;
 import dev.px.deteorite.Util.Render.Fontutil;
@@ -41,29 +42,35 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
         this.height = 13;
 
         this.components = new ArrayList<>();
-        if(Deteorite.valueManager.getValueForMod(module) != null && !Deteorite.valueManager.values.isEmpty()) {
-            for (Value v : Deteorite.valueManager.getValueForMod(module)) {
-                if(v.getValue() instanceof Boolean) {
-                    this.components.add(new ToggleButton(v, x, y, this));
+        if(Deteorite.valueManager.getValueForMod(module) != null) {
+            if(!Deteorite.valueManager.values.isEmpty()) {
+                for (Value v : Deteorite.valueManager.getValueForMod(module)) {
+                    if (v.getValue() instanceof Boolean) {
+                        this.components.add(new ToggleButton(v, x, y, this));
+                        continue;
+                    }
+                    if (v.getValue() instanceof Enum) {
+                        this.components.add(new EnumButton(v, x, y, this));
+                        continue;
+                    }
+                    if (v.getValue() instanceof Integer) {
+                        this.components.add(new IntegerSlider(v, x, y, this));
+                        continue;
+                    }
+                    if (v.getValue() instanceof Float) {
+                        this.components.add(new FloatSlider(v, x, y, this));
+                        continue;
+                    }
+                    if (v.getValue() instanceof Double) {
+                        this.components.add(new DoubleSlider(v, x, y, this));
+                        continue;
+                    }
+                    if (v.getValue() instanceof Color) {
+                        this.components.add(new ColorButton(v, x, y, this));
+                    }
                 }
-                if(v.getValue() instanceof Enum) {
-                    this.components.add(new EnumButton(v, x,  y, this));
-                }
-                if(v.getValue() instanceof Integer) {
-                    this.components.add(new IntegerSlider(v, x, y, this));
-                }
-                if(v.getValue() instanceof Float) {
-                    this.components.add(new FloatSlider(v, x, y, this));
-                }
-                if(v.getValue() instanceof Double) {
-                    this.components.add(new DoubleSlider(v, x, y, this));
-                }
-                if(v.getValue() instanceof Color) {
-                    this.components.add(new ColorButton(v, x, y, this));
-                }
-
-                this.components.add(new KeybindButton(this, x, y));
             }
+            this.components.add(new KeybindButton(this, x, y));
         }
     }
 
@@ -74,6 +81,9 @@ public class ModuleButton extends WidgetConstructor implements IComponent {
         Renderutil.drawRect(x, y + 12, x + width, y + 13, new Color(10, 10, 10, 200).getRGB());
         Fontutil.drawStringWithShadow(font(), module.getName(), x + 2, y + 2, -1);
 
+        if(module.isToggled()) {
+            Renderutil.drawRect(this.x, this.y, 1, this.height, new Color(ClickGUIModule.INSTANCE.red.getValue(), ClickGUIModule.INSTANCE.green.getValue(), ClickGUIModule.INSTANCE.blue.getValue(), 200).getRGB());
+        }
         //mc.getTextureManager().bindTexture(new ResourceLocation("gear.png"));
         //Gui.drawModalRectWithCustomSizedTexture(this.width - 2, this.y + 2, 0, 0, 10, 10, 10, 10);
 

@@ -4,6 +4,7 @@ import dev.px.deteorite.Deteorite;
 import dev.px.deteorite.Util.Interfaces.Util;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Config implements Util {
 
@@ -12,11 +13,9 @@ public class Config implements Util {
     private File mainFile;
     private File subFile;
 
-    public Config(String path, boolean txt) {
+    public Config(String path) {
         this.mainFile = new File(Deteorite.MODID);
         if(!mainFile.exists()) { mainFile.mkdirs(); }
-
-        //String Sfile = txt ? path + ".txt" : path;
 
         this.subFile = new File(mainFile + File.separator + path);
         if(!subFile.exists()) { subFile.mkdirs(); }
